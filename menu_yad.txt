@@ -1,0 +1,7 @@
+menu:
+1)HELP
+2)connexion
+3)alert
+4)mail
+5)service
+6)quitter

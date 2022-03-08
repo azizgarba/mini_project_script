@@ -1,0 +1,1 @@
+log.sh est un script qui permet d' analyser /var/log/messages pour produire un fichier joliment formaté des connexions des utilisateurs avec l'heure de connexion.
