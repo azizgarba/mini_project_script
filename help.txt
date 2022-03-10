@@ -1,1 +1,9 @@
-log.sh est un script qui permet d' analyser /var/log/messages pour produire un fichier joliment formaté des connexions des utilisateurs avec l'heure de connexion.
+le script log.sh permet d'analyser des informations sur les fichiers log,il a plusieurs fonctionalite:
+OPTION -c:c'est une fonction qui permet de tracer les tetatives de connexion de chaque utilisateur passé en argument dans un fichier nommer par le nom d’utilisateur.
+OPTION -a:c'est une fonction qui permet de tracer le nombre de mauvaise tentative de connexion de chaque utilisateur passé en argument.
+OPTION -l:c'est une fonction qui permet de tracer la date de dernier accès au service mail.
+OPTION -b:c'est une fonction qui permet d’analyser le fichier (/var/log/boot.log) et d’afficher les services qui sont entrain de démarrer.
+OPTION -h:afficher un fichier text help.txt.
+OPTION -g:aaficher un menu graphique(yad).
+OPTION -m:affiche un menu textuelle.
+OPTION -s:afficher la date et l'heure du de la dernier connection de l'utilisateur

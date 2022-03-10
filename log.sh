@@ -14,7 +14,7 @@ if [[ $# -gt 0 ]]; then
 				##6)exit 1
 			##esac
 		##done
-	while getopts ":hmgc:la:b" option ;do
+	while getopts ":hmgc:la:bs" option ;do
    		case "${option}" in
    		h) HELP;;
     	m) menu_textuelle;;
@@ -23,6 +23,7 @@ if [[ $# -gt 0 ]]; then
     	l)mail;;
     	a)alert $OPTARG;;
     	b)service;;
+		s)message;;
     	*) show_usage;;
    esac
 	done

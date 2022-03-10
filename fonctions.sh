@@ -16,17 +16,17 @@ HELP(){
 cat help.txt
 }
 connexion(){
-	echo "donner le nom du fichier"
-	read nom_fichier
-	touch "$nom_fichier.txt"
+	#echo "donner le nom du fichier"
+	#read nom_fichier
+	#touch "$nom_fichier.txt"
 	for (( i = 0; i < $#; i++ )); do
-		sudo cat /var/log/secure | grep "$i" | cut -d : -f 6 > "$nom_fichier.txt"
+		sudo cat /var/log/secure | grep "$i" | cut -d : -f 6 > "$USER.txt"
 
 	done
 }
 menu_textuelle(){
 	PS3="Votre choix: "
-	select var in "HELP" "connexion" "alert" "mail" "service" "exit"
+	select var in "HELP" "connexion" "alert" "mail" "service" "message" "exit"
 		do
 			case $REPLY in
  				1)HELP;;
@@ -34,16 +34,17 @@ menu_textuelle(){
 				3)alert $OPTARG;;
 				4)mail;;
 				5)service;;
-				6)exit 1
+				6)message;;
+				7)exit 1
 			esac
 		done
 }
 alert(){
 	for (( i = 0; i < $#; i++ )); do
-		test = sudo cat /var/log/secure | grep "authentication failure" | cut -d : -f 4 | wc -l
-		if [[ "$test" -gt 3 ]]; then
+		testee= sudo grep "authentication failure" /var/log/secure | cut -d : -f 4 | wc -l
+		if [[ $testee -gt 3 ]]; then
 			echo "alert!!!!!"
-		else echo "lol"	
+		else echo "pas d'alert!"	
 		fi
 	done
 }
@@ -56,4 +57,7 @@ service(){
 }
 graphique(){
 	yad --text-info --margins=20 < menu_yad.txt
+}
+message(){
+	sudo grep "New session" /var/log/messages | grep "aziz" | tail -1 | cut -d "c" -f 1
 }
