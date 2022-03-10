@@ -59,5 +59,5 @@ graphique(){
 	yad --text-info --margins=20 < menu_yad.txt
 }
 message(){
-	sudo grep "New session" /var/log/messages | grep "aziz" | tail -1 | cut -d "c" -f 1
+	sudo grep "New session" /var/log/messages | grep "$USER" | tail -1 | cut -d "c" -f 1
 }
